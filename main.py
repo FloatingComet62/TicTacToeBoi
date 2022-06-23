@@ -7,7 +7,7 @@ if os.path.isfile(".env"):
     load_dotenv()
 
 intents = discord.Intents.default()
-bot = commands.Bot(command_prefix='>', intents=intents)
+bot = commands.Bot(command_prefix=os.getenv("PREFIX"), intents=intents)
 bot.load_extension('jishaku')
 
 @bot.command()
