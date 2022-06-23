@@ -8,8 +8,8 @@ if os.path.isfile(".env"):
 
 cogs = ['cogs.ai']
 intents = discord.Intents.default()
-client = commands.Bot(command_prefix='>', intents=intents)
-client.load_extension('jishaku')
+bot = commands.Bot(command_prefix=os.getenv("PREFIX"), intents=intents)
+bot.load_extension('jishaku')
 
 @client.event
 async def on_ready():
