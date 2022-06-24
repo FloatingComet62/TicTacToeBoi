@@ -18,8 +18,8 @@ class TicTacToe(commands.Cog):
     
     @commands.command()
     async def match(self, ctx: commands.context.Context, opponent: discord.Member):
-        if ctx.author.id in [x.p1 for x in self.games] and ctx.author.id in [x.p2 for x in self.games if x.p2_ok]:
-            ctx.send("You are already in a game!")
+        if ctx.author.id in [x.p1 for x in self.games] or ctx.author.id in [x.p2 for x in self.games if x.p2_ok]:
+            await ctx.send("You are already in a game!")
         else:
             self.games.append(Game(ctx.author.id, opponent.id))
             await ctx.send(f"{opponent.mention} Type `y` in the chat to accept the match (This will expire in 60 seconds)")
