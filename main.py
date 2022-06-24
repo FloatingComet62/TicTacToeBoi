@@ -1,3 +1,4 @@
+from http import client
 from dotenv import load_dotenv
 import os
 import discord
@@ -8,8 +9,8 @@ if os.path.isfile(".env"):
 
 cogs = ['cogs.ai']
 intents = discord.Intents.default()
-bot = commands.Bot(command_prefix=os.getenv("PREFIX"), intents=intents)
-bot.load_extension('jishaku')
+client = commands.Bot(command_prefix=os.getenv("PREFIX"), intents=intents)
+client.load_extension('jishaku')
 
 @client.event
 async def on_ready():
