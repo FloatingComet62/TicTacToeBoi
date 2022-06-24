@@ -7,7 +7,7 @@ from discord.ext import commands
 if os.path.isfile(".env"):
     load_dotenv()
 
-cogs = ['cogs.ai']
+cogs = ['cogs.tictactoe']
 intents = discord.Intents.default()
 client = commands.Bot(command_prefix=os.getenv("PREFIX"), intents=intents)
 client.load_extension('jishaku')
